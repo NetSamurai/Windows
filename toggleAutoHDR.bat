@@ -19,7 +19,7 @@ set arg1=%1
 set ValidKey=false
 set AutoHDROn="AutoHDREnable=1;SwapEffectUpgradeEnable=1;"
 set AutoHDROff="AutoHDREnable=0;SwapEffectUpgradeEnable=1;"
-@for /f "tokens=3*" %%i in ('reg query HKEY_USERS\%Sid%\Software\Microsoft\DirectX\UserGpuPreferences /v "DirectXUserGlobalSettings" 2^>Nul') do Set "AutoHDRString=%%i"
+@for /f "tokens=3*" %%i in ('reg query HKEY_USERS\%Sid%\Software\Microsoft\DirectX\UserGpuPreferences /v "DirectXUserGlobalSettings" 2^>Nul') do set "AutoHDRString=%%i"
 if not defined AutoHDRString goto exit
 
 : Check if AutoHDR is of
