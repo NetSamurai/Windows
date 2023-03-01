@@ -9,5 +9,6 @@ This script toggles whether Window's "Auto HDR" setting is turned on. It is mean
 4) Add a new action on **Application closed actions** -> **Display Action** -> **Change HDR** -> `Deactivate HDR`
 5) Add a new action on **Application started actions** -> **Run program** -> Set the `File path` to where toggleAutoHDR.bat is located. Set `Arguments` to `/on`
 6) Add a new action on **Application closed actions** -> **Run program** -> Set the `File path` to where toggleAutoHDR.bat is located. Set `Arguments` to `/off`
+- Note: Make sure you select `All Files` instead of just `.exe` so you can select `toggleAutoHDR.bat`. 
 7) Assign relevant games, such as Halo: MCC to this new "HDR + AutoHDR" profile.
 8) Enjoy!
