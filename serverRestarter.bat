@@ -1,3 +1,8 @@
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+:: Author: Netrunner
+:: License: GNU General Public License v3.0
+:: Description: Restart a server remotely using a smart card and just a .bat!
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :: Hide Command and Set Scope
 @echo off
 setlocal EnableExtensions
