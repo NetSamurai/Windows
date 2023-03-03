@@ -18,5 +18,10 @@ This script toggles whether `Microsoft Windows'` "Auto HDR" setting is turned on
 ## Remote Server Management
 
 ### serverRestarter.bat
+Batch script to restart remote servers.
+
 ### serverRestarterStarter.bat
+Batch script to start any command prompt as if a Smart Card user, which is useful for devices like the YubiKey
+
 ### serviceRestarter.ps1
+PowerShell script to restart remote services.
