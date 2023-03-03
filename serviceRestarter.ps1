@@ -30,7 +30,7 @@ function Select-Server {
             Write-Host $i")" $servers[$i-1]
         }
         $serverSelection = Read-Host "Enter option or 'X' to exit"
-        if ($serverSelection -eq 0 -or $serverSelection -gt $serverMenuOptions.Count ) {
+        if ($serverSelection -le 0 -or $serverSelection -gt $serverMenuOptions.Count ) {
             if($serverSelection -eq "X") {
                 exit
             }
@@ -73,7 +73,7 @@ function Select-Service {
         }     
 
         $serviceSelection = Read-Host "Enter option or 'X' to exit"
-        if ($serviceSelection -eq 0 -or $serviceSelection -gt $serviceMenuOptions.Count ) {
+        if ($serviceSelection -le 0 -or $serviceSelection -gt $serviceMenuOptions.Count ) {
             if($serviceSelection -eq "X") {
                 exit
             }
