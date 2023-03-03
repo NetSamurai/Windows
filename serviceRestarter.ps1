@@ -9,13 +9,26 @@
 
 # Define the list of servers to choose from
 $servers = @("someserver1", "server2", "server4")
+
 # Must be a RegEx compatible string [use escapes]
 $validServices = @("ColdFusion", "W3SVC", "Oracle", "MSSQLSERVER", "MSSQLSRVR")
+
+# Optional hostname suffix
+$adDomain = ""
 
 # Define the menu options for the server selection
 $serverMenuOptions = New-Object System.Collections.ArrayList
 for ($i = 0; $i -lt $servers.Count; $i++) {
     $serverMenuOptions.Add($servers[$i])
+}
+
+Function IsValidInteger ([string]$fnInteger)
+{ 
+    Try {
+        $Null = [convert]::ToInt32($fnInteger)
+        Return $True
+    }
+    Catch {Return $False}
 }
 
 # Define the function to select a server
@@ -26,18 +39,26 @@ function Select-Server {
         Clear-Host
         Write-Host "Select a server:" -ForegroundColor Green
 
-        for ($i=1; $i -le $servers.Count; $i++){ 
-            Write-Host $i")" $servers[$i-1]
+        for ($i=1; $i -le $serverMenuOptions.Count; $i++){ 
+            Write-Host $i")" $serverMenuOptions[$i-1]
         }
         $serverSelection = Read-Host "Enter option or 'X' to exit"
-        if ( [int]$serverSelection -le 0 -or [int]$serverSelection -gt $serverMenuOptions.Count ) {
-            if($serverSelection -eq "X") {
-                exit
+
+        if( IsValidInteger( $serverSelection ) -eq True ) {
+            if ( [int]$serverSelection -le 0 -or [int]$serverSelection -gt $serverMenuOptions.Count ) {
+                
+                Write-Host "Invalid selection, please try again." -ForegroundColor Red
+                $serverSelection = ""
+                Start-Sleep 2
             }
+        } elseif ($serverSelection -eq "X") {
+            exit
+        } else {
             Write-Host "Invalid selection, please try again." -ForegroundColor Red
             $serverSelection = ""
             Start-Sleep 2
         }
+
     }
     return $serverMenuOptions[$serverSelection-1]
 }
@@ -49,7 +70,7 @@ function Select-Service {
         [string]$serverName
     )
     # Get the list of services to choose from
-    $services = Get-Service -ComputerName $serverName | Select-Object -ExpandProperty Name
+    $services = Get-Service -ComputerName $serverName$adDomain | Select-Object -ExpandProperty Name
 
     # Define the menu options for the service selection
     $serviceMenuOptions = New-Object System.Collections.ArrayList
@@ -73,10 +94,15 @@ function Select-Service {
         }     
 
         $serviceSelection = Read-Host "Enter option or 'X' to exit"
-        if ( [int]$serviceSelection -le 0 -or [int]$serviceSelection -gt $serviceMenuOptions.Count ) {
-            if($serviceSelection -eq "X") {
-                exit
+        if( IsValidInteger( $serviceSelection ) -eq True ) {
+            if ( [int]$serviceSelection -le 0 -or [int]$serviceSelection -gt $serviceMenuOptions.Count ) {
+                Write-Host "Invalid selection, please try again." -ForegroundColor Red
+                $serviceSelection = ""
+                Start-Sleep 2
             }
+        } elseif ($serviceSelection -eq "X") {
+            exit
+        } else {
             Write-Host "Invalid selection, please try again." -ForegroundColor Red
             $serviceSelection = ""
             Start-Sleep 2
@@ -86,7 +112,7 @@ function Select-Service {
     # Restart the selected service
     $serviceName = $serviceMenuOptions[$serviceSelection-1]
     Write-Host "Restarting $($serviceName) on $($serverName)..." -ForegroundColor Green
-    Get-Service $serviceName -ComputerName $serverName | Restart-Service -Force
+    Get-Service $serviceName -ComputerName $serverName$adDomain | Restart-Service -Force
     Write-Host "Service restarted successfully." -ForegroundColor Green
 }
 
