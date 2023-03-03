@@ -1,6 +1,4 @@
-# Windows
-
-## HDR
+# HDR
 Here you can find some tools that probably help HDR implementations in: https://github.com/Codectory/AutoActions
 
 ### toggleAutoHDR.bat
@@ -15,8 +13,7 @@ This script toggles whether `Microsoft Windows'` "Auto HDR" setting is turned on
 7) Assign relevant games, such as Halo: MCC to this new "HDR + AutoHDR" profile.
 8) Enjoy!
 
-## Remote Server Management
-
+# Remote Server Management
 ### serverRestarter.bat
 Batch script to restart remote servers.
 
