@@ -16,3 +16,7 @@ This script toggles whether `Microsoft Windows'` "Auto HDR" setting is turned on
 8) Enjoy!
 
 ## Remote Server Management
+
+### serverRestarter.bat
+### serverRestarterStarter.bat
+### serviceRestarter.ps1
