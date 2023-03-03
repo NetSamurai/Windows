@@ -26,3 +26,8 @@ Batch script to start any command prompt as if a Smart Card user, which is usefu
 ### serviceRestarter.ps1
 PowerShell script to restart remote services.
 
+## mssqlCloneInstanceDatabases.ps1
+Attempt and prompt ability to clone all items from one Microsoft SQL `instance` to another.
+
+## mssqlRestoreBackupDatabases.ps1
+Attempt and prompt ability to restore all of the databases in one `instance` from the last backup of another.
