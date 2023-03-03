@@ -123,7 +123,7 @@ while ($selection -ne "X") {
     Select-Service -serverName $serverName
 
     # Check if user wants to exit
-    $exitSelection = Read-Host "Enter 'X' to exit or any key to restart this prompt.."
+    $exitSelection = Read-Host "Enter 'X' to exit or any key to restart this prompt"
     if ($exitSelection -eq "X") {
         $selection = "X"
     }
