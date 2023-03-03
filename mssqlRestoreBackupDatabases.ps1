@@ -1,3 +1,11 @@
+##########################################################################################################
+## Author: Netrunner
+## License: GNU General Public License v3.0
+## Description: Restore backed up databases granularly on a MSSQL instance.
+##########################################################################################################
+## Usage: Change the $variables and magically restore backed up databases with prompts in a loop.
+##########################################################################################################
+
 $server_name = "serverHostname"
 $date_string_yesterday = (Get-Date).AddDays(-1).ToString('yyy-MM-dd')
 $date_string = (Get-Date).ToString('yyy-MM-dd')
