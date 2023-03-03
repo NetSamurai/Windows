@@ -1,3 +1,11 @@
+##########################################################################################################
+## Author: Netrunner
+## License: GNU General Public License v3.0
+## Description: Clonea instances across MSSQL instances.
+##########################################################################################################
+## Usage: Change the $variables and magically clone databases from one instance to another with prompts in a loop.
+##########################################################################################################
+
 $server_name = "serverHostname"
 $date_string = (Get-Date).ToString('yyy-MM-dd')
 $server_instance_path = "${server_name}\DEVMSSQLSERVER"
