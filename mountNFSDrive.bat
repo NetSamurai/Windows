@@ -1,7 +1,7 @@
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :: Author: Netrunner
 :: License: GNU General Public License v3.0
-:: Description: Restart a server remotely using a smart card and just a .bat!
+:: Description: Mount NFS drive(s). Add to Windows Task Scheduler to automate this.
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 @echo off
 set nas=192.168.1.2
